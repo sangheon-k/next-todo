@@ -51,3 +51,14 @@ export const createTodos = async (content: string) => {
 
   return result.data;
 };
+
+// Todo List 업데이트 하기
+export const updateTodos = async (id: number, content: string) => {
+  const supabase = createSupabaseBrowserClient();
+  const result = await supabase
+    .from("todos_no_rls")
+    .update({ content, updated_at: new Date().toISOString() })
+    .eq("id", id)
+    .select();
+  return result.data;
+};

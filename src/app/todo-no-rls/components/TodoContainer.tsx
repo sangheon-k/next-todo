@@ -6,11 +6,12 @@ import {
   getTodos,
   getTodosById,
   getTodosBySearch,
+  updateTodos,
 } from "@/apis/todos-no-rls";
 
 const TodoContainer = () => {
   useEffect(() => {
-    createTodos("Next.js에서 Todo를 생성함");
+    updateTodos(7, "Todo를 업데이트 함!");
   }, []);
 
   return <div>TodoContainer</div>;
