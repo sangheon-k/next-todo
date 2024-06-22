@@ -1,10 +1,15 @@
 import React from "react";
-import { sleep } from "@/lib/utils";
+import TodoContainer from "./components/TodoContainer";
 
 const page = async () => {
-  // throw new Error("custom Error"); // error test
-  await sleep(1500); // loading test
-  return <div>page</div>;
+  // await sleep(1500);
+
+  return (
+    <div>
+      page
+      <TodoContainer />
+    </div>
+  );
 };
 
 export default page;
