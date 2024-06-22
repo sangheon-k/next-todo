@@ -1,11 +1,16 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { getTodos, getTodosById, getTodosBySearch } from "@/apis/todos-no-rls";
+import {
+  createTodos,
+  getTodos,
+  getTodosById,
+  getTodosBySearch,
+} from "@/apis/todos-no-rls";
 
 const TodoContainer = () => {
   useEffect(() => {
-    getTodosBySearch("부하");
+    createTodos("Next.js에서 Todo를 생성함");
   }, []);
 
   return <div>TodoContainer</div>;

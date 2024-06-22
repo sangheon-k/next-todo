@@ -40,3 +40,14 @@ export const getTodosBySearch = async (terms: string) => {
 
   return result.data;
 };
+
+// Todo List 생성
+export const createTodos = async (content: string) => {
+  const supabase = createSupabaseBrowserClient();
+  const result = await supabase
+    .from("todos_no_rls")
+    .insert({ content })
+    .select();
+
+  return result.data;
+};
