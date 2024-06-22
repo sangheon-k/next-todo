@@ -62,3 +62,24 @@ export const updateTodos = async (id: number, content: string) => {
     .select();
   return result.data;
 };
+
+// Todo List softDelete
+export const deleteTodosSoft = async (id: number) => {
+  const supabase = createSupabaseBrowserClient();
+  const result = await supabase
+    .from("todos_no_rls")
+    .update({
+      updated_at: new Date().toISOString(),
+      deleted_at: new Date().toISOString(),
+    })
+    .eq("id", id)
+    .select();
+  return result.data;
+};
+
+// Todo List hardDelete
+export const deleteTodosHard = async (id: number) => {
+  const supabase = createSupabaseBrowserClient();
+  const result = await supabase.from("todos_no_rls").delete().eq("id", id);
+  return result.data;
+};

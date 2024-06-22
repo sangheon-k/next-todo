@@ -3,6 +3,8 @@
 import React, { useEffect } from "react";
 import {
   createTodos,
+  deleteTodosHard,
+  deleteTodosSoft,
   getTodos,
   getTodosById,
   getTodosBySearch,
@@ -11,7 +13,7 @@ import {
 
 const TodoContainer = () => {
   useEffect(() => {
-    updateTodos(7, "Todo를 업데이트 함!");
+    deleteTodosHard(7);
   }, []);
 
   return <div>TodoContainer</div>;
