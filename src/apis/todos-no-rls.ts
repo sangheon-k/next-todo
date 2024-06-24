@@ -77,9 +77,9 @@ export const deleteTodosSoft = async (id: number) => {
   return result.data;
 };
 
-// Todo List hardDelete
-export const deleteTodosHard = async (id: number) => {
-  const supabase = createSupabaseBrowserClient();
-  const result = await supabase.from("todos_no_rls").delete().eq("id", id);
-  return result.data;
-};
+// // Todo List hardDelete
+// export const deleteTodosHard = async (id: number) => {
+//   const supabase = createSupabaseBrowserClient();
+//   const result = await supabase.from("todos_no_rls").delete().eq("id", id);
+//   return result.data;
+// };
