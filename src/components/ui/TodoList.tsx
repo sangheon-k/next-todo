@@ -1,8 +1,14 @@
 import React from "react";
 import { IoSearchOutline, IoShareSocialOutline } from "react-icons/io5";
 import { useCopyToClipboard } from "usehooks-ts";
+import TodoListItem from "./TodoListItem";
 
-const TodoList = ({ sharedUserFullName = "", ownerUserId = "" }) => {
+const TodoList = ({
+  sharedUserFullName = "",
+  ownerUserId = "",
+  loading = false,
+  todoListData = [],
+}) => {
   const [copiedText, copy] = useCopyToClipboard();
 
   const handleCopy = () => {
@@ -49,6 +55,15 @@ const TodoList = ({ sharedUserFullName = "", ownerUserId = "" }) => {
           </div>
         </article>
         <div className="h-[2px] my-10 bg-black"></div>
+        {todoListData?.length >= 1 ? (
+          <ul>
+            {(todoListData ?? []).map((todo: { id: string }) => {
+              return <TodoListItem key={todo?.id} todo={todo} />;
+            })}
+          </ul>
+        ) : (
+          <div>{loading ? "Loading" : "Empty!"}</div>
+        )}
       </div>
     </section>
   );
