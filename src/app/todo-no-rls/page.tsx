@@ -6,7 +6,6 @@ const page = async () => {
 
   return (
     <div>
-      page
       <TodoContainer />
     </div>
   );
